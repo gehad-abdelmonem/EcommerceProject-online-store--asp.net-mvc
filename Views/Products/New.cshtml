@@ -1,0 +1,71 @@
+﻿@model Products
+@{
+    SelectList ProductType = new SelectList(ViewBag.ProductType, "Id", "ProductTypeName");
+}
+<div class=" row">
+    <div class="col-12 text-info mt-5 ">
+        <h2>Add New Product</h2>
+    </div>
+    <form asp-action="New" method="post" style="border-style: ridge;">
+        <h4 class="text-danger">@ViewBag.message</h4>
+        <div class="form-group row">
+            <div class="col-2 mt-4">
+            <label asp-for="Name" class="form-label"></label>
+            </div>
+            <div class="col-5 mt-4">
+                <input asp-for="Name" class="form-control ">
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <!--  //////////////////////////////////////////-->
+            <div class="col-2 mt-4">
+                <label asp-for="Price" class="form-label"></label>
+            </div>
+            <div class="col-5 mt-4">
+                <input asp-for="Price" class="form-control ">
+            </div>
+            <span asp-validation-for="Price" class="text-danger"></span>
+            <!--  //////////////////////////////////////////-->
+            <div class="col-2 mt-4">
+                <label asp-for="Image" class="form-label"></label>
+            </div>
+            <div class="col-5 mt-4">
+                <input asp-for="Image" class="form-control " type="file">
+            </div>
+            <span asp-validation-for="Image" class="text-danger"></span>
+             <!--  //////////////////////////////////////////-->
+            <div class="col-2 mt-4">
+                <label asp-for="ProductColor" class="form-label"></label>
+            </div>
+              <div class="col-5 mt-4">
+                <input asp-for="ProductColor" class="form-control ">
+            </div>
+            <span asp-validation-for="ProductColor" class="text-danger"></span>
+             <!--  //////////////////////////////////////////-->
+            <div class="col-2 mt-4">
+               <label asp-for="IsAvailable" class="form-label"></label>
+            </div>
+            <div class="col-5 mt-4">
+                <input asp-for="IsAvailable" >
+            </div>
+            <span asp-validation-for="IsAvailable" class="text-danger"></span>
+            <div class="col-2 mt-4">
+                <label asp-for="ProductTypId" class="form-label"></label>
+            </div>
+            <div class="col-5 mt-4">
+                <select asp-for="ProductTypId" asp-items="ProductType" class="form-control">
+                   <option value="0"> --selectProductType--</option>
+                </select>
+            </div>
+            <span asp-validation-for="ProductTypId" class="text-danger"></span>
+            <!--////////////////////////////////-->
+          <div class="mt-4 mb-4">
+                <button type="submit" class="btn btn-primary">Add</button>
+                <a asp-action="Index" asp-controller="Products" class="btn btn-success"> Back To List</a>
+          </div>
+        </div>
+    </form>
+</div>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"></partial>
+}

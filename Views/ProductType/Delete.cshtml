@@ -1,0 +1,20 @@
+﻿@model ProductType
+<div class=" row">
+    <div class="col-12 text-info mt-5 ">
+        <h2>Delete Product Type</h2>
+    </div>
+    <form style="border-style: ridge;">
+        <div class="form-group row">
+            <div class="col-2 mt-4">
+            <label asp-for="ProductTypeName" class="form-label"></label>
+            </div>
+            <div class="col-5 mt-4">
+                <input asp-for="ProductTypeName" class="form-control ">
+            </div>
+          <div class="mt-4 mb-4">
+                <a href="/ProductType/FinalDelete/@Model.Id"   class="btn btn-primary">Delete</a>
+                <a asp-action="Index" asp-controller="ProductType" class="btn btn-success"> Back To List</a>
+          </div>
+        </div>
+    </form>
+</div

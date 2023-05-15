@@ -1,0 +1,73 @@
+﻿@model Products
+@{
+    SelectList ProductType = new SelectList(ViewBag.ProductType, "Id", "ProductTypeName");
+}
+<div class=" row">
+    <div class="col-12 text-info mt-5 ">
+        <h2> Product Details</h2>
+    </div>
+    <form style="border-style: ridge;">
+
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-2 mt-4">
+                        <label asp-for="Name" class="form-label"></label>
+                    </div>
+                    <div class="col-5 mt-4 ms-5">
+                        <input asp-for="Name" class="form-control " readonly="readonly">
+                    </div>
+                </div>
+
+                <!--  //////////////////////////////////////////-->
+                <div class="form-group row">
+                    <div class="col-2 mt-4">
+                        <label asp-for="Price" class="form-label"></label>
+                    </div>
+                    <div class="col-5 mt-4 ms-5">
+                        <input asp-for="Price" class="form-control " readonly="readonly">
+                    </div>
+                </div>
+                <!--  //////////////////////////////////////////-->
+                <div class="form-group row">
+                    <div class="col-2 mt-4">
+                        <label asp-for="ProductColor" class="form-label"></label>
+                    </div>
+                    <div class="col-5 mt-4 ms-5">
+                        <input asp-for="ProductColor" class="form-control " readonly="readonly">
+                    </div>
+                </div>
+                <!--  //////////////////////////////////////////-->
+                <div class="form-group row">
+                    <div class="col-2 mt-4">
+                        <label asp-for="IsAvailable" class="form-label"></label>
+                    </div>
+                    <div class="col-5 mt-4 ms-5">
+                        <input asp-for="IsAvailable" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2 mt-4">
+                        <label asp-for="ProductTypId" class="form-label"></label>
+                    </div>
+                    <div class="col-5 mt-4 ms-5">
+                        <select asp-for="ProductTypId" asp-items="ProductType" class="form-control" readonly="readonly">
+                            <option value="0"> --selectProductType--</option>
+                        </select>
+                    </div>
+                </div>
+                <!--////////////////////////////////-->
+                <br />
+                <h4>Do You Want To Delete This Product</h4>
+                <div class="mt-4 mb-4">
+                    <a href="/Products/DeleteComfirm/@Model.Id" class="btn btn-primary">Delete</a>
+                    <a asp-action="Index" asp-controller="Products" class="btn btn-success"> Back To List</a>
+                </div>
+            </div>
+
+            <div class="col-3 mt-5">
+                <img src="~/images/@Model.Image" width="100%" style="border-radius:5px;border:1px solid #efefef">
+            </div>
+        </div>
+    </form>
+</div>
